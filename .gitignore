@@ -1,0 +1,16 @@
+
+# Raw dataset
+Dataset/
+
+# Temporary and cache files
+.tmp/
+duckdb_temp/
+__pycache__/
+.ipynb_checkpoints/
+
+# DuckDB write-ahead log
+*.duckdb.wal
+
+# Python environment
+.venv/
+venv/
