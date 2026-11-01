@@ -1,0 +1,4 @@
+Model,MAPE
+Seasonal Naive,4.300985347859252
+Holt Linear,6.4921388236747255
+Naive Baseline,7.388575637200919

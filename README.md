@@ -1,112 +1,56 @@
-# Retail Sales Forecast
+# Retail Sales Analytics & Demand Forecasting
 
-A retail analytics and forecasting project focused on understanding sales performance, customer behavior, and product/store trends through data processing, analysis, and a Power BI dashboard.
+An end-to-end retail analytics project using the Dunnhumby "Let's Get Sort-of-Real" dataset.
 
-## Overview
+## Project Overview
 
-This repository contains a collection of retail transaction and customer data, processed analytical datasets, and a Power BI project for exploring sales patterns and forecasting opportunities. The project is designed to support data-driven decision-making for revenue planning, customer segmentation, and operational insights.
+This project analyzes large-scale retail transaction data to identify sales trends, product performance, customer segments, store performance, and future demand patterns.
 
-## Business Goal
+## Tech Stack
 
-The project aims to:
+- Python — Pandas, NumPy, Matplotlib, Statsmodels, Scikit-learn
+- SQL — DuckDB
+- Power BI — Interactive dashboards and visual analytics
+- Jupyter Notebook — Data analysis and forecasting
 
-- analyze monthly, quarterly, and yearly sales trends
-- evaluate store and product performance
-- identify customer segments and purchasing behaviors
-- assess missing/anonymized customer data quality
-- support business reporting through a Power BI dashboard
+## Project Workflow
 
-## Repository Structure
+1. Data cleaning and quality assessment
+2. Exploratory Data Analysis (EDA)
+3. SQL-based analytical queries
+4. Power BI dashboard development
+5. Weekly sales aggregation
+6. Forecasting model comparison and validation
 
-```text
-Retail-Sales-Forecast/
-├── .gitignore
-├── Retail_Analytics_Project.pbix
-├── anonymous_customer_analysis.csv
-├── complete_missing_value_audit.csv
-├── profile_data.ipynb
-├── retail_analytics.duckdb
-├── transaction_profile.csv
-├── processed_data/
-│   ├── customer_segment_analysis.csv
-│   ├── monthly_sales.csv
-│   ├── product_analysis.csv
-│   ├── quarterly_sales.csv
-│   ├── store_analysis.csv
-│   └── yearly_sales.csv
-├── powerbi_data/
-│   ├── vw_customer_segments.csv
-│   ├── vw_monthly_sales.csv
-│   ├── vw_product_sales.csv
-│   └── vw_store_sales.csv
-└── README.md
-```
+## Forecasting Results
 
-## Key Files
+Three weekly forecasting approaches were evaluated using rolling validation:
 
-### Power BI Dashboard
-- `Retail_Analytics_Project.pbix` — the main business intelligence dashboard for retail analytics and sales exploration.
+| Model | Average Rolling MAPE |
+|---|---:|
+| Seasonal Naive | 4.30% |
+| Holt Linear | 6.49% |
+| Naive Baseline | 7.39% |
 
-### Notebook
-- `profile_data.ipynb` — exploratory data analysis and profiling notebook used to understand the dataset structure, nulls, distributions, and patterns.
+**Selected model:** Seasonal Naive.
 
-### Core Data Files
-- `anonymous_customer_analysis.csv` — audit of customer anonymization and missing customer coverage across transaction files.
-- `complete_missing_value_audit.csv` — summary of missing-value checks and data quality findings.
-- `transaction_profile.csv` — profile summary of transactional data characteristics.
-- `retail_analytics.duckdb` — DuckDB database file containing structured analytical data.
+The final forecast covers 13 weeks, from July 7 to September 29, 2008.
 
-### Processed Analytical Outputs
-The `processed_data/` folder includes cleaned and aggregated datasets used for reporting and trend analysis:
+Note: Historical validation performance does not guarantee future accuracy.
 
-- `monthly_sales.csv` — monthly revenue/unit trends
-- `quarterly_sales.csv` — quarterly summaries
-- `yearly_sales.csv` — annual rollups
-- `product_analysis.csv` — product-level performance analysis
-- `store_analysis.csv` — store-level performance analysis
-- `customer_segment_analysis.csv` — segmentation analysis
+## Project Outputs
 
-### Power BI Views
-The `powerbi_data/` folder contains view-style exports that appear to be ready for dashboard consumption:
+- `final_weekly_demand_forecast.csv`
+- `weekly_model_comparison.csv`
+- `rolling_validation_results.csv`
+- `weekly_sales_dataset.csv`
 
-- `vw_monthly_sales.csv`
-- `vw_product_sales.csv`
-- `vw_store_sales.csv`
-- `vw_customer_segments.csv`
+## Dataset
 
-## Data Characteristics
+Source: Dunnhumby — Let's Get Sort-of-Real.
 
-The repository appears to be built around retail transaction-level sales data spanning multiple months and years, with emphasis on:
+The dataset contains synthetic retail transaction data and is used for educational and analytical purposes.
 
-- revenue and unit sales
-- product performance
-- store-level profitability/productivity
-- customer segmentation
-- anonymized customer tracking
-- missing data quality assessment
+## Disclaimer
 
-## Suggested Workflow
-
-1. Open `profile_data.ipynb` to inspect and profile the raw dataset.
-2. Review the processed CSV files in `processed_data/` for cleaned analytics tables.
-3. Open `Retail_Analytics_Project.pbix` to explore the dashboard and visual insights.
-4. Use the CSV files in `powerbi_data/` for tabular data sources or reporting pipelines.
-
-## Tools and Technologies
-
-- Python / Jupyter Notebook
-- Pandas and data profiling workflows
-- DuckDB for analytical querying
-- Power BI for dashboarding and business reporting
-
-## Notes
-
-This project is a strong example of end-to-end retail analytics: data profiling, cleaning, feature preparation, aggregation, and business reporting. It is suitable for showcasing analytical storytelling, KPI monitoring, and sales forecasting workflows.
-
-## License
-
-This repository does not include an explicit license file. If you plan to reuse or share the project publicly, consider adding a license that matches your intended usage.
-
-## Contact
-
-For questions or collaboration opportunities, please reach out via the repository owner or project contact information associated with this GitHub profile.
+This project is an independent academic portfolio project. It does not represent actual transactions from any specific retail chain.
